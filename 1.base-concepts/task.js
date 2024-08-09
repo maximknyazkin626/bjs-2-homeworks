@@ -11,8 +11,6 @@ function solveEquation(a, b, c) {
   } else if (d === 0) {
     let x = -b / (2 * a);
     arr.push(x);
-  } else {
-    console.log("Корней нет");
   }
 
   return arr;
@@ -25,7 +23,6 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
     creditBody *
     (monthPercent + monthPercent / ((1 + monthPercent) ** countMonths - 1));
   let totalPayment = monthPayment * countMonths;
-  totalPayment = +totalPayment.toFixed(2);
 
-  return totalPayment;
+  return +totalPayment.toFixed(2);
 }
