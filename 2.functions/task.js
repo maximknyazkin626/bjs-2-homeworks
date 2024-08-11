@@ -91,4 +91,15 @@ function averageEvenElementsWorker(...arr) {
 
 function makeWork (arrOfArr, func) {
   let maxWorkerResult = -Infinity;
+  for (j = 0; j < arrOfArr.length; j++) {
+    const result = func(...arrOfArr[j]);
+    if (result > maxWorkerResult) {
+      maxWorkerResult = result;
+    }
+  }
+  return maxWorkerResult;
+  //Почему-то здесь у меня счётчик i был равен 10 ещё до начала выполнения цикла
+  //Долго не мог понять, потом оказалось что ошибка в этом и пришлось использовать j
+  //Почему так? Был бы благодарен за комментарий
+  
 }
