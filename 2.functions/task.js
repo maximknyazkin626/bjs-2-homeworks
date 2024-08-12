@@ -21,7 +21,7 @@ function summElementsWorker(...arr) {
   }
   let sum = arr.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
-  }, arr[0]);
+  }, 0);
 
   // let sum = 0;
   // for (let i = 0; i < arr.length; i++) {
