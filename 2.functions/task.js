@@ -1,16 +1,9 @@
 function getArrayParams(...arr) {
-  let min = arr[0];
-  let max = arr[0];
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
-    }
-    if (arr[i] < min) {
-      min = arr[i];
-    }
-    sum += arr[i];
-  }
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+  let sum = arr.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
   let avg = +(sum / arr.length).toFixed(2);
   return { min: min, max: max, avg: avg };
 }
@@ -19,15 +12,9 @@ function summElementsWorker(...arr) {
   if (arr.length === 0) {
     return 0;
   }
-  let sum = arr.reduce((accumulator, currentValue) => {
+  return arr.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
   }, 0);
-
-  // let sum = 0;
-  // for (let i = 0; i < arr.length; i++) {
-  //   sum += arr[i];
-  // }
-  // return sum;
 }
 
 function differenceMaxMinWorker(...arr) {
@@ -36,18 +23,6 @@ function differenceMaxMinWorker(...arr) {
   }
 
   return Math.max(...arr) - Math.min(...arr);
-
-  // let min = arr[0];
-  // let max = arr[0];
-  // for (let i = 0; i < arr.length; i++) {
-  //   if (arr[i] > max) {
-  //     max = arr[i];
-  //   }
-  //   if (arr[i] < min) {
-  //     min = arr[i];
-  //   }
-  // }
-  // return max - min;
 }
 
 function differenceEvenOddWorker(...arr) {
@@ -78,8 +53,7 @@ function averageEvenElementsWorker(...arr) {
       countEvenElement += 1;
     }
   }
-  let total = sumEvenElement / countEvenElement;
-  return total;
+  return sumEvenElement / countEvenElement;
 }
 
 function makeWork(arrOfArr, func) {
@@ -91,7 +65,4 @@ function makeWork(arrOfArr, func) {
     }
   }
   return maxWorkerResult;
-  //Почему-то здесь у меня счётчик i был равен 10 ещё до начала выполнения цикла
-  //Долго не мог понять, потом оказалось что ошибка в этом и пришлось использовать j
-  //Почему так? Был бы благодарен за комментарий
 }
