@@ -26,3 +26,4 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
   return +totalPayment.toFixed(2);
 }
+
