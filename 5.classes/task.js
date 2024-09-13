@@ -29,6 +29,8 @@ class PrintEditionItem {
     }
 }
 
+
+
 class Magazine extends PrintEditionItem{
     constructor (name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount);
@@ -89,7 +91,8 @@ class Library {
         if (bookIndex !== -1) {
             return this.books.splice(bookIndex, 1)[0]; 
         }
-        return null; 
+           return null;
+
     }
         
 }
