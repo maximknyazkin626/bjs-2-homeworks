@@ -1,8 +1,9 @@
 ﻿function parseCount(str) {
-    if (isNaN(Number.parseFloat(str))) {
+    let parseResult = Number.parseFloat(str);
+    if (isNaN(parseResult)) {
         throw new Error ("Невалидное значение");
     } else {
-        return Number.parseFloat(str);
+        return parseResult;
     }
 }
 
@@ -10,7 +11,7 @@ function validateCount(str) {
     try {
         return parseCount(str);
     } catch (error) {
-        return error.message;
+        return error;
     } 
 }
 
@@ -19,7 +20,7 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        if (this.a + this.b <= this.c || this.a + this.c <= this.b || this.b + this.c <= this.a) {
+        if (a + b <= c || a + c <= b || b + c <= a) {
             throw new Error ("Треугольник с такими сторонами не существует");
         } 
     }
